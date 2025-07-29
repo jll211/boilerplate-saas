@@ -1,5 +1,6 @@
 
 import { Zap, Shield, BarChart3, Users, Workflow, Globe } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Features = () => {
   const features = [
@@ -35,36 +36,69 @@ const Features = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6
+      }
+    }
+  };
+
   return (
     <section id="features" className="py-24 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-[-2px]" style={{ fontFamily: 'DM Sans, sans-serif' }}>
             Everything You Need to Scale
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto font-mono tracking-wide">
             Powerful features designed to help your business grow faster and more efficiently than ever before.
           </p>
-        </div>
+        </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {features.map((feature, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-blue-200 group"
+              variants={itemVariants}
+              whileHover={{ scale: 1.02 }}
+              className="bg-white/70 backdrop-blur-sm p-8 rounded-3xl shadow-[inset_-2px_-2px_8px_rgba(255,255,255,0.7),inset_2px_2px_8px_rgba(0,0,0,0.1),0_8px_32px_rgba(0,0,0,0.1)] border border-white/50 hover:shadow-[inset_-3px_-3px_10px_rgba(255,255,255,0.8),inset_3px_3px_10px_rgba(0,0,0,0.1),0_12px_40px_rgba(0,0,0,0.15)] transition-all duration-300 group"
             >
-              <div className="text-blue-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-blue-600 mb-6 group-hover:scale-110 transition-transform duration-300">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4" style={{ fontFamily: 'DM Sans, sans-serif' }}>
                 {feature.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed font-mono text-sm">
                 {feature.description}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
