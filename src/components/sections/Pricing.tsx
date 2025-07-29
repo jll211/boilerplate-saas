@@ -6,49 +6,52 @@ import { motion } from "framer-motion";
 const Pricing = () => {
   const plans = [
     {
-      name: "Starter",
-      price: "29",
-      period: "/month",
-      description: "Perfect for small teams getting started",
+      name: "Starter Template",
+      price: "99",
+      period: "one-time",
+      description: "Perfect for indie hackers and solo builders",
       features: [
-        "Up to 5 team members",
-        "10GB storage",
-        "Basic analytics",
-        "Email support",
-        "Core integrations"
+        "Complete SaaS boilerplate",
+        "Auth & user management", 
+        "Stripe integration",
+        "Admin dashboard",
+        "Database schema",
+        "6 months updates",
+        "Discord community"
       ],
       popular: false
     },
     {
-      name: "Professional",
-      price: "79",
-      period: "/month",
-      description: "Ideal for growing businesses",
+      name: "Pro Template",
+      price: "199",
+      period: "one-time",
+      description: "Best for serious builders and small teams",
       features: [
-        "Up to 25 team members",
-        "100GB storage",
-        "Advanced analytics",
+        "Everything in Starter",
+        "Advanced components",
+        "Multi-tenant support",
+        "Email templates",
+        "API documentation",
+        "Lifetime updates",
         "Priority support",
-        "All integrations",
-        "Custom workflows",
-        "API access"
+        "1-on-1 setup call"
       ],
       popular: true
     },
     {
-      name: "Enterprise",
-      price: "199",
-      period: "/month",
-      description: "Built for large organizations",
+      name: "Agency License",
+      price: "499",
+      period: "one-time",
+      description: "For agencies building client projects",
       features: [
-        "Unlimited team members",
-        "1TB storage",
-        "Enterprise analytics",
-        "24/7 phone support",
-        "Custom integrations",
-        "Advanced security",
-        "Dedicated account manager",
-        "SLA guarantee"
+        "Everything in Pro",
+        "White-label rights",
+        "Unlimited client projects",
+        "Custom branding",
+        "Advanced integrations",
+        "Reseller license",
+        "Dedicated support",
+        "Custom development"
       ],
       popular: false
     }
@@ -68,13 +71,13 @@ const Pricing = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 sticky top-20 bg-gray-50/90 backdrop-blur-sm py-8 z-10"
+          className="text-center mb-16 sticky-header"
         >
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-[-2px]" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-            Simple, Transparent Pricing
+            Skip Months of Development
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto font-mono tracking-wide">
-            Choose the perfect plan for your team. Upgrade or downgrade at any time with no hidden fees.
+            One-time payment. Lifetime access. Start building your SaaS today instead of spending months on boilerplate.
           </p>
         </motion.div>
         
@@ -125,7 +128,7 @@ const Pricing = () => {
                     : "bg-gray-900 hover:bg-gray-800 text-white"
                 }`}
               >
-                Start Free Trial
+                Get Template Now
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </motion.div>
@@ -134,7 +137,7 @@ const Pricing = () => {
         
         <div className="text-center mt-12">
           <p className="text-gray-600 font-mono">
-            All plans include a 14-day free trial. No credit card required.
+            All templates include full source code and documentation. No recurring fees.
           </p>
         </div>
       </div>
