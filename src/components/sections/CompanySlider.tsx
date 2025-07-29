@@ -73,12 +73,14 @@ const CompanySlider = () => {
         </div>
       </div>
       
-      <style jsx>{`
-        .mask-gradient {
-          -webkit-mask: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
-          mask: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
-        }
-      `}</style>
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          .mask-gradient {
+            -webkit-mask: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
+            mask: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
+          }
+        `
+      }} />
     </section>
   );
 };
