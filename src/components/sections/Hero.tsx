@@ -38,9 +38,21 @@ const Hero = () => {
           >
             <h1 className="text-6xl md:text-8xl font-bold text-gray-900 mb-6 leading-tight tracking-[-2px]" style={{ fontFamily: 'DM Sans, sans-serif' }}>
               Scale Your Business with{" "}
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <motion.span 
+                className="relative inline-block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"
+                style={{
+                  textShadow: `
+                    10px 10px 0px rgba(59, 130, 246, 0.3),
+                    20px 20px 0px rgba(147, 51, 234, 0.2),
+                    30px 30px 0px rgba(236, 72, 153, 0.1)
+                  `,
+                  filter: 'drop-shadow(4px 4px 8px rgba(0,0,0,0.3))'
+                }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
                 AI-Powered
-              </span>
+              </motion.span>
               <br />
               SaaS Platform
             </h1>
@@ -104,18 +116,6 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
-      
-      {/* Floating neomorphic elements */}
-      <motion.div 
-        animate={{ y: [0, -10, 0] }}
-        transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-        className="absolute top-20 left-20 w-24 h-24 bg-white/40 rounded-3xl shadow-[inset_-2px_-2px_6px_rgba(255,255,255,0.7),inset_2px_2px_6px_rgba(0,0,0,0.1)] backdrop-blur-sm"
-      ></motion.div>
-      <motion.div 
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-32 right-20 w-32 h-32 bg-white/30 rounded-3xl shadow-[inset_-3px_-3px_8px_rgba(255,255,255,0.6),inset_3px_3px_8px_rgba(0,0,0,0.1)] backdrop-blur-sm"
-      ></motion.div>
     </section>
   );
 };
