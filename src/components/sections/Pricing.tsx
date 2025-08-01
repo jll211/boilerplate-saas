@@ -16,8 +16,6 @@ const Pricing = () => {
         "Stripe integration",
         "Admin dashboard",
         "Database schema",
-        "6 months updates",
-        "Discord community"
       ],
       popular: false
     },
@@ -34,7 +32,10 @@ const Pricing = () => {
         "API documentation",
         "Lifetime updates",
         "Priority support",
-        "1-on-1 setup call"
+        "1-on-1 setup call",
+        "Team collaboration tools",
+        "Advanced analytics",
+        "Custom domain setup"
       ],
       popular: true
     },
@@ -58,7 +59,7 @@ const Pricing = () => {
   ];
 
   return (
-    <section id="pricing" className="py-24 bg-gray-50 relative">
+    <section id="pricing" className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       <motion.div
         className="absolute inset-0"
         style={{

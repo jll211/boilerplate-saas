@@ -12,7 +12,7 @@ const CallToAction = () => {
             Ready to Launch Your SaaS?
           </h2>
           <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed font-mono tracking-wide">
-            Join 500+ builders who've already shipped their SaaS using our battle-tested template.
+            Join 200+ builders who've already shipped their SaaS using our battle-tested template.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">

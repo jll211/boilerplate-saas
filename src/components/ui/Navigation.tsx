@@ -18,13 +18,15 @@ const Navigation = () => {
             transition={{ duration: 0.6 }}
             className="flex items-center"
           >
-            <div className="w-12 h-12 bg-white rounded-2xl shadow-[inset_-2px_-2px_6px_rgba(255,255,255,0.7),inset_2px_2px_6px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] mr-3 flex items-center justify-center">
-              <span className="text-2xl font-bold bg-gradient-to-br from-blue-600 to-purple-600 bg-clip-text text-transparent" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-                SB
-              </span>
+            <div className="w-12 h-12 mr-3 flex items-center justify-center">
+              <img 
+                src="/lovable-logo-icon.svg" 
+                alt="LovableSaaS" 
+                className="w-10 h-10 object-contain"
+              />
             </div>
             <span className="text-2xl font-bold text-gray-900 tracking-[-1px]" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-              SaasBoost
+              LovableSaaS
             </span>
           </motion.div>
           
@@ -46,11 +48,8 @@ const Navigation = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="hidden md:flex items-center space-x-4"
+            className="hidden md:flex items-center"
           >
-            <Button variant="ghost" className="text-gray-700 hover:bg-gray-100/50 rounded-xl">
-              Sign In
-            </Button>
             <Button className="bg-white text-gray-900 hover:bg-gray-50 rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.9)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.15),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all duration-300">
               Start Free Trial
             </Button>
@@ -79,10 +78,7 @@ const Navigation = () => {
               <a href="#pricing" className="block text-gray-700 hover:text-gray-900 transition-colors font-medium py-2">Pricing</a>
               <a href="#testimonials" className="block text-gray-700 hover:text-gray-900 transition-colors font-medium py-2">Testimonials</a>
               <a href="#faq" className="block text-gray-700 hover:text-gray-900 transition-colors font-medium py-2">FAQ</a>
-              <div className="pt-4 space-y-3">
-                <Button variant="ghost" className="w-full text-gray-700 hover:bg-gray-100/50 rounded-xl">
-                  Sign In
-                </Button>
+              <div className="pt-4">
                 <Button className="w-full bg-white text-gray-900 hover:bg-gray-50 rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.1)]">
                   Start Free Trial
                 </Button>

@@ -6,22 +6,38 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const Hero = () => {
-  const [typewriterText, setTypewriterText] = useState("");
-  const fullText = "Ship Faster";
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  
+  const words = ["SaaS", "Prototype", "App", "Website"];
   
   useEffect(() => {
-    let i = 0;
-    const typingInterval = setInterval(() => {
-      if (i < fullText.length) {
-        setTypewriterText(fullText.slice(0, i + 1));
-        i++;
-      } else {
-        clearInterval(typingInterval);
-      }
-    }, 150);
+    const currentWord = words[currentWordIndex];
     
-    return () => clearInterval(typingInterval);
-  }, []);
+    const typingSpeed = isDeleting ? 50 : 100;
+    const pauseTime = isDeleting ? 100 : 2000;
+    
+    const timeout = setTimeout(() => {
+      if (!isDeleting && displayText === currentWord) {
+        // Pause before deleting
+        setTimeout(() => setIsDeleting(true), pauseTime);
+      } else if (isDeleting && displayText === "") {
+        // Move to next word
+        setIsDeleting(false);
+        setCurrentWordIndex((prev) => (prev + 1) % words.length);
+      } else {
+        // Type or delete character
+        setDisplayText(prev => 
+          isDeleting 
+            ? prev.slice(0, -1)
+            : currentWord.slice(0, prev.length + 1)
+        );
+      }
+    }, typingSpeed);
+    
+    return () => clearTimeout(timeout);
+  }, [currentWordIndex, displayText, isDeleting, words]);
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-slate-50 to-gray-100 overflow-hidden">
@@ -32,7 +48,7 @@ const Hero = () => {
       
       <Navigation />
       
-      <div className="relative z-10 container mx-auto px-4 pt-32 pb-16">
+      <div className="relative z-10 container mx-auto px-4 pt-32 pb-2">
         <div className="max-w-6xl mx-auto">
           {/* Badge */}
           <motion.div 
@@ -55,7 +71,7 @@ const Hero = () => {
             className="text-center mb-8"
           >
             <h1 className="text-6xl md:text-8xl font-bold text-gray-900 mb-6 leading-tight tracking-[-2px]" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-              Build & {" "}
+              Build your {" "}
               <motion.span 
                 className="relative inline-block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"
                 style={{
@@ -66,11 +82,11 @@ const Hero = () => {
                   animation: 'gradient-shift 3s ease-in-out infinite'
                 }}
               >
-                {typewriterText}
+                {displayText}
                 <span className="animate-pulse">|</span>
               </motion.span>
               <br />
-              Your SaaS
+              faster
             </h1>
           </motion.div>
           
@@ -82,16 +98,16 @@ const Hero = () => {
             className="text-center mb-12"
           >
             <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-mono tracking-wide">
-              Stop wasting months on boilerplate code. Launch your SaaS in weeks with our production-ready template featuring auth, payments, dashboard, and everything you need.
+              Stop wasting months on boilerplate code. Launch your SaaS in days with our production-ready template. It has auth, payments, dashboard, and everything you need.
             </p>
           </motion.div>
           
           {/* CTA Buttons */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
           >
             <Button 
               size="lg" 
